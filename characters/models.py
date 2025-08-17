@@ -29,7 +29,7 @@ class Character(models.Model):
     )
     gender = models.CharField(
         max_length=255,
-        choices=StatusChoices.choices,
+        choices=GenderChoices.choices,
     )
     image = models.URLField(
         max_length=255,
