@@ -7,20 +7,47 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Character',
+            name="Character",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('api_id', models.IntegerField(unique=True)),
-                ('name', models.CharField(max_length=255)),
-                ('status', models.CharField(choices=[('ALIVE', 'Alive'), ('DEAD', 'Dead'), ('UNKNOWN', 'Unknown')], max_length=50)),
-                ('species', models.CharField(max_length=255)),
-                ('gender', models.CharField(choices=[('ALIVE', 'Alive'), ('DEAD', 'Dead'), ('UNKNOWN', 'Unknown')], max_length=255)),
-                ('image', models.URLField(max_length=255, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("api_id", models.IntegerField(unique=True)),
+                ("name", models.CharField(max_length=255)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("ALIVE", "Alive"),
+                            ("DEAD", "Dead"),
+                            ("UNKNOWN", "Unknown"),
+                        ],
+                        max_length=50,
+                    ),
+                ),
+                ("species", models.CharField(max_length=255)),
+                (
+                    "gender",
+                    models.CharField(
+                        choices=[
+                            ("ALIVE", "Alive"),
+                            ("DEAD", "Dead"),
+                            ("UNKNOWN", "Unknown"),
+                        ],
+                        max_length=255,
+                    ),
+                ),
+                ("image", models.URLField(max_length=255, unique=True)),
             ],
         ),
     ]

@@ -13,13 +13,10 @@ class Character(models.Model):
         GENDERLESS = "GENDERLESS"
         UNKNOWN = "UNKNOWN"
 
-
     api_id = models.IntegerField(
         unique=True,
     )
-    name = models.CharField(
-        max_length=255
-    )
+    name = models.CharField(max_length=255)
     status = models.CharField(
         max_length=50,
         choices=StatusChoices.choices,
@@ -31,11 +28,7 @@ class Character(models.Model):
         max_length=255,
         choices=GenderChoices.choices,
     )
-    image = models.URLField(
-        max_length=255,
-        unique=True
-    )
+    image = models.URLField(max_length=255, unique=True)
 
     def __str__(self):
         return self.name
-

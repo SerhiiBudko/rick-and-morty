@@ -11,9 +11,7 @@ def scrape_characters() -> list[Character]:
 
     characters = []
     while next_url_to_scrape is not None:
-        characters_response = requests.get(
-            next_url_to_scrape
-        ).json()
+        characters_response = requests.get(next_url_to_scrape).json()
 
         for character_dict in characters_response["results"]:
             characters.append(
@@ -37,6 +35,6 @@ def save_characters(characters: list[Character]) -> None:
         character.save()
 
 
-def sync_characters_with_api()-> None:
+def sync_characters_with_api() -> None:
     characters = scrape_characters()
     save_characters(characters)
