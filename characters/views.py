@@ -1,6 +1,6 @@
 import random
 
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, generics
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.decorators import api_view
@@ -20,3 +20,13 @@ def get_random_characters(request: Request) -> Response:
         status=status.HTTP_200_OK
     )
 
+class CharacterListView(generics.ListAPIView):
+    serializer_class = CharacterSerializer
+
+    def get_queryset(self):
+        queryset = Character.objects.all()
+        name = self.request.query_params.get("name")
+        if name is not None:
+            queryset = queryset.filter(name__icontains=name)
+
+        return queryset
